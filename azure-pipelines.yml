@@ -10,4 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Test'
+    subscriptionId: '1eb0ec38-d6e0-4954-8ef4-909effb5d614'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'lightsource-poc-prod-aj'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(Build.SourcesDirectory)/templete.json'
+    deploymentMode: 'Incremental'
