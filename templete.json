@@ -6,8 +6,8 @@
             "defaultValue": "gmail",
             "type": "String"
         },
-        "sites_lightsource_name": {
-            "defaultValue": "lightsource",
+        "sites_lightsource2_name": {
+            "defaultValue": "lightsource2",
             "type": "String"
         },
         "workflows_testing_name": {
@@ -18,20 +18,20 @@
             "defaultValue": "gmail-1",
             "type": "String"
         },
-        "components_lightsource_name": {
-            "defaultValue": "lightsource",
+        "components_lightsource2_name": {
+            "defaultValue": "lightsource2",
             "type": "String"
         },
-        "serverfarms_ASP_lightsourcepocdevaj_a24f_name": {
-            "defaultValue": "ASP-lightsourcepocdevaj-a24f",
+        "serverfarms_ASP_lightsource2pocdevaj_a24f_name": {
+            "defaultValue": "ASP-lightsource2pocdevaj-a24f",
             "type": "String"
         },
-        "storageAccounts_storageaccountlightbe3b_name": {
-            "defaultValue": "storageaccountlightbe3b",
+        "storageAccounts_storageaccountlightbe4b_name": {
+            "defaultValue": "storageaccountlightbe4b",
             "type": "String"
         },
-        "smartdetectoralertrules_failure_anomalies___lightsource_name": {
-            "defaultValue": "failure anomalies - lightsource",
+        "smartdetectoralertrules_failure_anomalies___lightsource2_name": {
+            "defaultValue": "failure anomalies - lightsource2",
             "type": "String"
         },
         "actiongroups_application_insights_smart_detection_externalid": {
@@ -44,7 +44,7 @@
         {
             "type": "microsoft.insights/components",
             "apiVersion": "2018-05-01-preview",
-            "name": "[parameters('components_lightsource_name')]",
+            "name": "[parameters('components_lightsource2_name')]",
             "location": "eastus",
             "kind": "web",
             "properties": {
@@ -59,7 +59,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccounts_storageaccountlightbe3b_name')]",
+            "name": "[parameters('storageAccounts_storageaccountlightbe4b_name')]",
             "location": "eastus",
             "sku": {
                 "name": "Standard_LRS",
@@ -120,7 +120,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('serverfarms_ASP_lightsourcepocdevaj_a24f_name')]",
+            "name": "[parameters('serverfarms_ASP_lightsource2pocdevaj_a24f_name')]",
             "location": "East US",
             "sku": {
                 "name": "EP1",
@@ -144,10 +144,10 @@
         {
             "type": "microsoft.alertsmanagement/smartdetectoralertrules",
             "apiVersion": "2019-06-01",
-            "name": "[parameters('smartdetectoralertrules_failure_anomalies___lightsource_name')]",
+            "name": "[parameters('smartdetectoralertrules_failure_anomalies___lightsource2_name')]",
             "location": "global",
             "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('components_lightsource_name'))]"
+                "[resourceId('microsoft.insights/components', parameters('components_lightsource2_name'))]"
             ],
             "properties": {
                 "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
@@ -163,7 +163,7 @@
                     ]
                 },
                 "scope": [
-                    "[resourceId('microsoft.insights/components', parameters('components_lightsource_name'))]"
+                    "[resourceId('microsoft.insights/components', parameters('components_lightsource2_name'))]"
                 ],
                 "actionGroups": {
                     "groupIds": [
@@ -237,9 +237,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -257,9 +257,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -277,9 +277,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -290,9 +290,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -303,27 +303,27 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('sites_lightsource_name')]",
+            "name": "[parameters('sites_lightsource2_name')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_lightsourcepocdevaj_a24f_name'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_lightsource2pocdevaj_a24f_name'))]"
             ],
             "kind": "functionapp,linux,container",
             "properties": {
                 "enabled": true,
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_lightsource_name'), '.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_lightsource2_name'), '.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Standard"
                     },
                     {
-                        "name": "[concat(parameters('sites_lightsource_name'), '.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_lightsource2_name'), '.scm.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Repository"
                     }
                 ],
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_lightsourcepocdevaj_a24f_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_lightsource2pocdevaj_a24f_name'))]",
                 "reserved": true,
                 "isXenon": false,
                 "hyperV": false,
@@ -341,10 +341,10 @@
         {
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_lightsource_name'), '/web')]",
+            "name": "[concat(parameters('sites_lightsource2_name'), '/web')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_lightsource_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_lightsource2_name'))]"
             ],
             "properties": {
                 "numberOfWorkers": 1,
@@ -365,7 +365,7 @@
                 "httpLoggingEnabled": false,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
-                "publishingUsername": "$lightsource",
+                "publishingUsername": "$lightsource2",
                 "azureStorageAccounts": {},
                 "scmType": "None",
                 "use32BitWorkerProcess": false,
@@ -421,23 +421,23 @@
         {
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_lightsource_name'), '/', parameters('sites_lightsource_name'), '.azurewebsites.net')]",
+            "name": "[concat(parameters('sites_lightsource2_name'), '/', parameters('sites_lightsource2_name'), '.azurewebsites.net')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_lightsource_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_lightsource2_name'))]"
             ],
             "properties": {
-                "siteName": "lightsource",
+                "siteName": "lightsource2",
                 "hostNameType": "Verified"
             }
         },
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default/azure-webjobs-hosts')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default/azure-webjobs-hosts')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_storageaccountlightbe3b_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_storageaccountlightbe4b_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "properties": {
                 "defaultEncryptionScope": "$account-encryption-key",
@@ -448,10 +448,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default/azure-webjobs-secrets')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default/azure-webjobs-secrets')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_storageaccountlightbe3b_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_storageaccountlightbe4b_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "properties": {
                 "defaultEncryptionScope": "$account-encryption-key",
@@ -462,10 +462,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
             "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountlightbe3b_name'), '/default/lightsourceb59a')]",
+            "name": "[concat(parameters('storageAccounts_storageaccountlightbe4b_name'), '/default/lightsource2b59a')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_storageaccountlightbe3b_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe3b_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_storageaccountlightbe4b_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountlightbe4b_name'))]"
             ],
             "properties": {
                 "accessTier": "TransactionOptimized",
