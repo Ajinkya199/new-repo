@@ -12,7 +12,7 @@
       "value": "sql"
     },
     "sql_displayName": {
-      "value": "Dev-DB"
+      "value": "Prod-DB"
     },
     "sql_server": {
       "value": "testing-meggit-db.database.windows.net"
