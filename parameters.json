@@ -1,12 +1,30 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workflows_dev_meggit_aj_name": {
-            "value": null
-        },
-        "connections_sql_externalid": {
-            "value": null
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "value": "dev-meggit-aj"
+    },
+    "paramname": {
+      "value": "dny"
+    },
+    "sql_name": {
+      "value": "sql"
+    },
+    "sql_displayName": {
+      "value": "Dev-DB"
+    },
+    "sql_server": {
+      "value": "testing-meggit-db.database.windows.net"
+    },
+    "sql_database": {
+      "value": "meggit-test-aj"
+    },
+    "sql_username": {
+      "value": null
+    },
+    "sql_password": {
+      "value": null
     }
+  }
 }
