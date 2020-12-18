@@ -20,4 +20,4 @@ steps:
     location: 'East US'
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.SourcesDirectory)/templete.json'
-    deploymentMode: 'Incremental'
+    deploymentMode: 'Incremental' 
