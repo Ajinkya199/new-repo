@@ -10,15 +10,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Test'
-    subscriptionId: '1eb0ec38-d6e0-4954-8ef4-909effb5d614'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'prod-meggit-aj'
-    location: 'West US'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Build.SourcesDirectory)/templete.json'
-    csmParametersFile: '$(Build.SourcesDirectory)/parameters.json'
-    deploymentMode: 'Incremental'
+    - task: AzurePowerShell@5
+      displayName: Init dir sql
+      inputs:
+        azureSubscription: 'OP-payasugo'
+        ScriptType: 'FilePath'
+        ScriptPath: '$(Build.SourcesDirectory)/sqlinit.ps1'
+        ScriptArguments: '-pass "$(dbpass)"'
+        azurePowerShellVersion: 'LatestVersion'
