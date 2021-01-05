@@ -15,6 +15,5 @@ steps:
       inputs:
         azureSubscription: 'OP-payasugo'
         ScriptType: 'FilePath'
-        ScriptPath: '$(Build.SourcesDirectory)/sqlinit.ps1'
-        ScriptArguments: '-pass "$(dbpass)"'
+        ScriptPath: '$(Build.SourcesDirectory)/sql.ps1'
         azurePowerShellVersion: 'LatestVersion'
